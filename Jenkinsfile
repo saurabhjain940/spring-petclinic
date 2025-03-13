@@ -11,10 +11,10 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                echo 'clone..'
-                sh 'ls'
+                // Get the latest code from your version control system
+                checkout scm
             }
         }
         stage('Install dependencies') {
