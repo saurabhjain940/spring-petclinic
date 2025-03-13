@@ -55,7 +55,8 @@ pipeline {
 
                 # Explicitly specify the build argument
                 echo 'Building Docker image...'
-                docker build -t \$REGISTRY/\$REPOSITORY:\$IMAGE_TAG .
+                #docker build -t \$REGISTRY/\$REPOSITORY:\$IMAGE_TAG .
+                docker tag 730335384723.dkr.ecr.ap-south-1.amazonaws.com/hybrid:v_0d29b6a_2025_03_13_19_51 \$REGISTRY/\$REPOSITORY:\$IMAGE_TAG
             """
             }
         }
@@ -116,7 +117,7 @@ pipeline {
 
 
                         # Display the updated file contents with the new tag
-                        cat $DEPLOY_TARGET_FILE | grep tag
+                        cat $DEPLOY_TARGET_FILE
 
                         # Check if there are any changes to commit
                         if git diff --quiet; then
