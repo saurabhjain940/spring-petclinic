@@ -1,9 +1,12 @@
 pipeline {
     agent {
         docker { 
-            image 'docker:latest' 
-            args '-v /var/run/docker.sock:/var/run/docker.sock -u 0:0' 
-        }
+            alwaysPull true
+            image 'docker:latest'
+            registryUrl 'https://730335384723.dkr.ecr.ap-south-1.amazonaws.com'
+            registryCredentialsId 'ecr:ap-south-1:aws'
+            args '-v /var/run/docker.sock:/var/run/docker.sock -u 0:0'
+            }
     }
 
     stages {
