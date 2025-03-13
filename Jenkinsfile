@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { 
             alwaysPull true
-            image 'docker:latest'
+            image '730335384723.dkr.ecr.ap-south-1.amazonaws.com/jenkins/agent:latest'
             registryUrl 'https://730335384723.dkr.ecr.ap-south-1.amazonaws.com'
             registryCredentialsId 'ecr:ap-south-1:aws'
             args '-v /var/run/docker.sock:/var/run/docker.sock -u 0:0'
